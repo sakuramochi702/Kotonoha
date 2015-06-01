@@ -1,10 +1,11 @@
 <!doctype html>
+<!-- トウコウ -->
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
 	<title>コトノハコレクション</title>
 	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
-	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="add.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css" media="all">
 </head>
 <body>
@@ -26,13 +27,18 @@
 	</div>
 	<div id="right">
 		<div id="content">
-			<!--<div id="searchbox">
-				<p id="searchcond"><input type="text" id="cond" value=""></p>
-			</div>-->
 			<div id="main">
-				<p id="listtitle">ヒトヒラ</p>
+				<p id="listtitle">トウコウ</p>
 				<div id="wordlist">
-					<!-- <div id="remark">ここにParseから読み込んで生成</div> -->
+					<div id="inputform">
+						<p id="inputlabel">コトノハ</p>
+						<p id="inputedt"><input type="text" id="remark" value=""><p>
+						<p id="inputlabel">タグ</p>
+						<p id="inputedt"><input type="text" id="tags" value=""><p>
+						<p id="inputlabel">ナマエ</p>
+						<p id="inputedt"><input type="text" id="username" value=""><p>
+						<p class="btnAdd" onClick="onClickAdd()">トウコウ</p>
+					</div>
 				</div>
 			</div>
 		</div>

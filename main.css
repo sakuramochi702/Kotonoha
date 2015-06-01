@@ -1,31 +1,85 @@
+html {
+	height: 100%;
+}
+
 body {
-	background-color: #eeeeea;
+	background-color: #eeeeee;
 	color: black;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	font-family: Verdana, sans-serif;
 }
 
+div#left {
+	float: left;
+	width: 30%;
+	height: 100%;
+	background-color: #fefefe;
+}
+
+div#right {
+	float: right;
+	height: 100%;
+	width: 66%;
+	background-color: #eeeeee;
+}
+
 div#header {
-	margin-top: 0px;
-	margin-bottom: 0px;
+	margin-top: 50px;
+	margin-bottom: 25px;
 	height: 52px;
 	text-align: left;
 	padding: 4px;
-	padding-left: 32px;
+	padding-left: 48px;
 	padding-bottom: 10px;
-	background-color: #fcfcfc;
 	color: black;
 }
 
-h3#title {
-	font-size: 120%;
+h3#title a {
+	font-size: 100%;
+	text-decoration: none;
 	color: #3cb371;
+}
+
+/* menu */
+#menu {
+	width: 70%;
+	margin-left: auto;
+}
+
+#menu ul{
+	margin: 0; 
+	padding: 0;
+	list-style: none; 
+	height: 100%;
+}
+#menu li{ 
+	display: block; 
+	padding: 0; 
+	margin: 10px 0 10px 0;
+	height: 100%;
+}
+
+#menu li a{
+	display: block; 
+	border-left: 8px solid #c2a46c;
+	padding: 0px 10px;
+	text-decoration: none;
+	color: #c1c2af;
+	width: 200px; 
+	margin: 0px 0px;
+	text-align: left;
+	font-size: 14px;
+	height: 100%;
+}
+#menu li a:hover{
+	border-left: 8px solid #fafad2;
 }
 
 div#content {
 	width: 90%;
-	margin: 0 auto;
+	margin: 70px auto 0 auto;
 }
 
 div#searchbox {
@@ -98,18 +152,63 @@ p#tag, #datetime {
 	text-align: right;
 	font-size: 10px;
 	margin-right: 30px;
+
 }
 
-.button {
-	background: #b22222;
+div#inputform {
+	margin-top: 20px;
+	padding: 10px 30px 10px 30px;
+	border-style: none;
+	border-radius: 5px;
+	border-color: #cccccc;
+	text-align: left;
+	background: #fefefe;
+	color: #777777;
+	box-shadow:5px 5px 10px;
+}
+
+p#inputlabel {
+	display: block;
+	width: 100%;
+	float: left;
+	margin-bottom: 2px;
+}
+
+p#inputedt {
+	width: 100%;
+	display: block;
+}
+
+input#remark, #tags, #username {
+	border: 1px solid #ddd;
+	font-size: 100%;
+	padding: 0.5em;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.1) inset;
+}
+
+input#remark {
+	width: 100%;
+}
+
+input#tags {
+	width: 50%;
+}
+
+input#username {
+	width: 25%;
+}
+
+.btnAdd {
+	background: #8fbc8f;
 	border-style: solid;
 	border-width: thick;
-	border-color: #b22222;
+	border-color: #8fbc8f;
 	width: 100px;
-	height: 24px;
-	line-height: 24px;
+	height: 28px;
+	line-height: 28px;
 	text-align: center;
-	margin: 0px;
+	margin: 40px 0 20px 0;
 	color: #ffffff;
 	border-radius: 5%;
 	cursor: pointer;
@@ -120,48 +219,9 @@ p#tag, #datetime {
 	translation: all 0.2s;
 }
 
-.button:active {
+.btnAdd:active {
 	background: white;
 	color: #b22222;
 }
 
-/* menu */
-#menu {
-	width: 100%;
-	height: 2.5em;
-	background: #004800;
-}
 
-#menu ul{
-	margin: 0; 
-	padding: 0;
-	list-style: none; 
-	height: 100%;
-}
-#menu li{ 
-	display: inline; 
-	padding: 0; 
-	margin: 0; 
-	float: left;
-	height: 100%;
-}
-#menu li#menu_r {
-	float: right;
-}
-#menu li a{
-	display: block; 
-	border-left: 8px solid #c2a46c;
-	background-color: #004800;
-	padding: 0px 10px;
-	text-decoration: none;
-	color: #E1E2CF;
-	width: 100px; 
-	margin: 0px 0px;
-	text-align: left;
-	font-size: 14px;
-	height: 100%;
-}
-#menu li a:hover{
-	border-left: 8px solid #fafad2;
-	background-color: #004800;
-}
