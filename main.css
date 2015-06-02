@@ -75,6 +75,7 @@ h3#title a {
 }
 #menu li a:hover{
 	border-left: 8px solid #fafad2;
+	color: #f08080;
 }
 
 div#content {
@@ -128,19 +129,21 @@ div#wordlist {
 }
 
 div#explain {
-	background: #fefefe;
+	background: #eeeeee;
 	color: #777777;
 	margin-top: 5px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 0;
+	margin-right: 0;
 	margin-bottom: 30px;
-	padding: 20px 15px 20px 15px;
+	padding: 10px 0px 10px 0px;
 	text-align: left;
-	width: 90%;
-	border-style: none;
-	border-radius: 5px;
-	border-color: #cccccc;
-	box-shadow:5px 5px 10px;
+	font-size: 80%;
+	width: 100%;
+}
+
+div#explain a {
+	color: #ffffff;
+	text-decoration: none;
 }
 
 ul#board {
@@ -240,5 +243,55 @@ input#username {
 	background: white;
 	color: #b22222;
 }
+
+.btnNext, .btnNext2 {
+	background: #8fbc8f;
+	border-style: solid;
+	border-width: medium;
+	border-color: #8fbc8f;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin: 10px auto 20px auto;
+	color: #ffffff;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-translation: all 0.2s;
+	-moz-translation: all 0.2s;
+	-ms-translation: all 0.2s;
+	-o-translation: all 0.2s;
+	translation: all 0.2s;
+}
+
+.btnRgst {
+	background: #8fbc8f;
+	border-style: solid;
+	border-width: medium;
+	border-color: #8fbc8f;
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin: 30px auto 20px auto;
+	color: #ffffff;
+	border-radius: 5%;
+	cursor: pointer;
+	-webkit-translation: all 0.2s;
+	-moz-translation: all 0.2s;
+	-ms-translation: all 0.2s;
+	-o-translation: all 0.2s;
+	translation: all 0.2s;
+}
+
+.btnNext:active, .btnNext2:active, .btnRgst:active {
+	background: white;
+	color: #8fbc8f;
+}
+
+.explain2, .btnNext2, .explain3, .btnRgst {
+	display: none;
+}
+
 
 

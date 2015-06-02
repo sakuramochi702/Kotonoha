@@ -31,13 +31,14 @@ function loadOneData() {
 	});
 }
 
-//現在時刻を文字列型で
-function toLocaleString(date)
-{
-    return [
-        date.getFullYear(),
-        date.getMonth() + 1,
-        date.getDate()
-        ].join( '/' ) + ' '
-        + date.toLocaleTimeString();
+function onClickNext() {
+	document.getElementById('explain2').style.display = 'block';
+	document.getElementById('btnNext2').style.display = 'block';
 }
+
+function onClickNext2() {
+	document.getElementById('explain3').style.display = 'block';
+	document.getElementById('btnRgst').style.display = 'block';
+}
+
+
