@@ -122,8 +122,25 @@ div#wordlist {
 	margin-top: 5px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 30px;
 	text-align: center;
 	width: 90%;
+}
+
+div#explain {
+	background: #fefefe;
+	color: #777777;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	padding: 20px 15px 20px 15px;
+	text-align: left;
+	width: 90%;
+	border-style: none;
+	border-radius: 5px;
+	border-color: #cccccc;
+	box-shadow:5px 5px 10px;
 }
 
 ul#board {
