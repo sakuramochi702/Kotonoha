@@ -1,0 +1,69 @@
+div#explain {
+	background: #eeeeee;
+	color: #777777;
+	margin-top: 5px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 30px;
+	padding: 10px 0px 10px 0px;
+	text-align: left;
+	font-size: 80%;
+	width: 100%;
+}
+
+div#explain a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btnNext, .btnNext2 {
+	background: #8fbc8f;
+	border-style: solid;
+	border-width: medium;
+	border-color: #8fbc8f;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin: 10px auto 20px auto;
+	color: #ffffff;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-translation: all 0.2s;
+	-moz-translation: all 0.2s;
+	-ms-translation: all 0.2s;
+	-o-translation: all 0.2s;
+	translation: all 0.2s;
+}
+
+.btnRgst {
+	background: #8fbc8f;
+	border-style: solid;
+	border-width: medium;
+	border-color: #8fbc8f;
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin: 30px auto 20px auto;
+	color: #ffffff;
+	border-radius: 5%;
+	cursor: pointer;
+	-webkit-translation: all 0.2s;
+	-moz-translation: all 0.2s;
+	-ms-translation: all 0.2s;
+	-o-translation: all 0.2s;
+	translation: all 0.2s;
+}
+
+.btnNext:active, .btnNext2:active, .btnRgst:active {
+	background: white;
+	color: #8fbc8f;
+}
+
+.explain2, .btnNext2, .explain3, .btnRgst {
+	display: none;
+}
+
+
+

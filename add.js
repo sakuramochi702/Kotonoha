@@ -15,13 +15,13 @@ function onClickAdd() {
 	var object = new Kotonoha();
 	object.save({sentence: strRemark.value, tags: strTags.value, username: strUserName.value}, {
 		success: function(obj) {
-			alert("コトノハをトウコウしました。");
+			swal("コトノハをトウコウしました。");
 			strRemark.value = "";
 			strTags.value = "";
 			$(".success").show();
 		},
 		error: function(model, error) {
-			alert("コトノハのトウコウに失敗しました。");
+			swal("コトノハのトウコウに失敗しました。");
 			$(".error").show();
 		}
 	});

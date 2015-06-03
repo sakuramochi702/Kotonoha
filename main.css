@@ -111,7 +111,7 @@ div#main {
 	margin-top: 32px;
 }
 
-p#listtitle {
+p#listtitle, #addtitle, #rgsttitle {
 	width: 90%;
 	height: 10px;
 	margin: 0 auto;
@@ -119,37 +119,13 @@ p#listtitle {
 	color: #008000;
 }
 
-div#wordlist {
+div#wordlist, #addform, #rgstform {
 	margin-top: 5px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 30px;
 	text-align: center;
 	width: 90%;
-}
-
-div#explain {
-	background: #eeeeee;
-	color: #777777;
-	margin-top: 5px;
-	margin-left: 0;
-	margin-right: 0;
-	margin-bottom: 30px;
-	padding: 10px 0px 10px 0px;
-	text-align: left;
-	font-size: 80%;
-	width: 100%;
-}
-
-div#explain a {
-	color: #ffffff;
-	text-decoration: none;
-}
-
-ul#board {
-	margin-left: 0px;
-	font-size: 14px;
-	text-align: left;
 }
 
 div#remark {
@@ -199,7 +175,7 @@ p#inputedt {
 	display: block;
 }
 
-input#remark, #tags, #username {
+input#remark, #tags, #username, #password, #email {
 	border: 1px solid #ddd;
 	font-size: 100%;
 	padding: 0.5em;
@@ -207,7 +183,7 @@ input#remark, #tags, #username {
 	box-shadow: 1px 1px 3px rgba(0,0,0,.1) inset;
 }
 
-input#remark {
+input#remark, #email {
 	width: 100%;
 }
 
@@ -215,11 +191,11 @@ input#tags {
 	width: 50%;
 }
 
-input#username {
+input#username, #password {
 	width: 25%;
 }
 
-.btnAdd {
+.btnAdd, .btnRgst {
 	background: #8fbc8f;
 	border-style: solid;
 	border-width: thick;
@@ -239,59 +215,10 @@ input#username {
 	translation: all 0.2s;
 }
 
-.btnAdd:active {
+.btnAdd:active, .btnRgst:active {
 	background: white;
-	color: #b22222;
 }
 
-.btnNext, .btnNext2 {
-	background: #8fbc8f;
-	border-style: solid;
-	border-width: medium;
-	border-color: #8fbc8f;
-	width: 20px;
-	height: 20px;
-	line-height: 20px;
-	text-align: center;
-	margin: 10px auto 20px auto;
-	color: #ffffff;
-	border-radius: 50%;
-	cursor: pointer;
-	-webkit-translation: all 0.2s;
-	-moz-translation: all 0.2s;
-	-ms-translation: all 0.2s;
-	-o-translation: all 0.2s;
-	translation: all 0.2s;
-}
-
-.btnRgst {
-	background: #8fbc8f;
-	border-style: solid;
-	border-width: medium;
-	border-color: #8fbc8f;
-	width: 150px;
-	height: 20px;
-	line-height: 20px;
-	text-align: center;
-	margin: 30px auto 20px auto;
-	color: #ffffff;
-	border-radius: 5%;
-	cursor: pointer;
-	-webkit-translation: all 0.2s;
-	-moz-translation: all 0.2s;
-	-ms-translation: all 0.2s;
-	-o-translation: all 0.2s;
-	translation: all 0.2s;
-}
-
-.btnNext:active, .btnNext2:active, .btnRgst:active {
-	background: white;
-	color: #8fbc8f;
-}
-
-.explain2, .btnNext2, .explain3, .btnRgst {
-	display: none;
-}
 
 
 
