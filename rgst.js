@@ -7,18 +7,23 @@ window.onload = function() {
 
 function onClickRgst() {
 	//要素取得
-	var lblUsername = document.getElementById("username");
-	var lblPassword = document.getElementById("password");
-	var lblEmail = document.getElementById("email");
+	var strUsername = document.getElementById("username").value;
+	var strPassword = document.getElementById("password").value;
+	var strEmail = document.getElementById("email").value;
 
-	Parse.User.signUp(lblUsername.value, lblPassword.value, {
+	var user = new Parse.User();
+	user.set("username", strUsername);
+	user.set("password", strPassword);
+	user.set("email", strEmail);
+	user.signUp(null, {
 		success: function(user) {
 			// サインアップ成功
-			swal({
-				title: "メッセージ",
-				text: "ユーザートウロクにセイコウしました",
-				confirmButtonColor: "#8fbc8f"
-			});
+			//swal({
+			//	title: "メッセージ",
+			//	text: "ユーザートウロクにセイコウしました",
+			//	confirmButtonColor: "#8fbc8f"
+			//});
+			swal("成功");
 		},
 		error: function(user, error) {
 			// サインアップ失敗

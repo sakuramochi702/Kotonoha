@@ -15,14 +15,22 @@ function onClickAdd() {
 	var object = new Kotonoha();
 	object.save({sentence: strRemark.value, tags: strTags.value, username: strUserName.value}, {
 		success: function(obj) {
-			swal("コトノハをトウコウしました。");
+			swal({
+				title: "メッセージ",
+				text: "コトノハを登録しました。",
+				confirmButtonColor: "#8fbc8f"
+			});
 			strRemark.value = "";
 			strTags.value = "";
-			$(".success").show();
+			//$(".success").show();
 		},
 		error: function(model, error) {
-			swal("コトノハのトウコウに失敗しました。");
-			$(".error").show();
+			swal({
+				title: "エラー",
+				text: "コトノハの登録に失敗しました。",
+				confirmButtonColor: "#8fbc8f"
+			});
+			//$(".error").show();
 		}
 	});
 }
