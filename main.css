@@ -78,6 +78,14 @@ h3#title a {
 	color: #f08080;
 }
 
+/* userinfo */
+#userinfo {
+	margin: 0px 20px 0px auto;
+	color: #c1c2af;
+	font-size: 10px;
+	text-align: right;
+}
+
 div#content {
 	width: 90%;
 	margin: 70px auto 0 auto;
