@@ -3,17 +3,7 @@ Parse.initialize("HkycYcXTouVqnrPIz4KYcUGEG4iSwhaiNuqDohzR", "ST9G77Nfh2ZCgjsByo
 
 window.onload = function() {
 	//ログイン情報
-	var ele = document.createElement('div');
-	ele.id = "user";	
-	if (Parse.User.current()) {
-		ele.innerHTML = '<p id="usernm">' 
-			+ Parse.User.current().getUsername() 
-			+ ' としてログイン中</p>';
-		} else {
-		ele.innerHTML = '<p id="usernm">ログインしていません' ;
-	}
-	var par = document.getElementById('userinfo');
-	par.appendChild(ele);
+	getLoginInfo();
 }
 
 function onClickAdd() {

@@ -81,14 +81,30 @@ h3#title a {
 /* userinfo */
 #userinfo {
 	margin: 0px 20px 0px auto;
+	height: 36px;
 	color: #c1c2af;
 	font-size: 10px;
 	text-align: right;
 }
 
+#usernm {
+	margin-bottom: 4px;
+}
+
+#logout {
+	cursor: pointer;
+	line-height: 15px;
+	margin: 0 0 0 auto;
+	text-decoration: none;
+}
+
+#logout:hover {
+	text-decoration: underline;
+}
+
 div#content {
 	width: 90%;
-	margin: 70px auto 0 auto;
+	margin: 32px auto 0 auto;
 }
 
 div#searchbox {
@@ -119,7 +135,7 @@ div#main {
 	margin-top: 32px;
 }
 
-p#listtitle, #addtitle, #rgsttitle {
+p#listtitle, #addtitle, #rgsttitle, #logintitle {
 	width: 90%;
 	height: 10px;
 	margin: 0 auto;
@@ -127,7 +143,7 @@ p#listtitle, #addtitle, #rgsttitle {
 	color: #008000;
 }
 
-div#wordlist, #addform, #rgstform {
+div#wordlist, #addform, #rgstform, #loginform {
 	margin-top: 5px;
 	margin-left: auto;
 	margin-right: auto;

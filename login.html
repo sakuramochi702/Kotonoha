@@ -1,13 +1,14 @@
 <!doctype html>
-<!-- 投稿 -->
+<!-- ログインページ -->
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
 	<title>コトノハコレクション</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
 	<script src="dist/sweetalert.min.js"></script>
 	<script type="text/javascript" src="logout.js"></script>
-	<script type="text/javascript" src="add.js"></script>
+	<script type="text/javascript" src="login.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css" media="all">
 	<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 </head>
@@ -33,16 +34,14 @@
 		</div>
 		<div id="content">
 			<div id="main">
-				<p id="addtitle">トウコウ</p>
-				<div id="addform">
+				<p id="logintitle">ログイン</p>
+				<div id="loginform">
 					<div id="inputform">
-						<p id="inputlabel">コトノハ</p>
-						<p id="inputedt"><input type="text" id="remark" value=""><p>
-						<p id="inputlabel">タグ</p>
-						<p id="inputedt"><input type="text" id="tags" value=""><p>
-						<p id="inputlabel">ナマエ</p>
+						<p id="inputlabel">ユーザーID</p>
 						<p id="inputedt"><input type="text" id="username" value=""><p>
-						<p class="btnAdd" onClick="onClickAdd()">トウコウ</p>
+						<p id="inputlabel">パスワード</p>
+						<p id="inputedt"><input type="password" id="password" value=""><p>
+						<p id="btnRgst" class="btnRgst" onClick="onClickLogin()">ログイン</p>
 					</div>
 				</div>
 			</div>
