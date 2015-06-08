@@ -26,12 +26,14 @@ div#right {
 }
 
 div#header {
+	width: 80%;
+	margin-left: auto;
 	margin-top: 50px;
 	margin-bottom: 25px;
 	height: 52px;
 	text-align: left;
 	padding: 4px;
-	padding-left: 48px;
+	padding-left: 0;
 	padding-bottom: 10px;
 	color: black;
 }
@@ -78,6 +80,33 @@ h3#title a {
 	color: #f08080;
 }
 
+/* socialButtons */
+#social {
+	position: fixed;
+	width: 30%;
+	text-align: center;
+	bottom: 0px;
+}
+
+ul.share-buttons{
+	list-style: none;
+	padding: 0;
+}
+
+ul.share-buttons li{
+	display: inline;
+	margin: 0 10px;
+}
+
+ul.share-buttons li a {
+	color: #c1c2af;
+}
+
+ul.share-buttons li a:hover {
+	color: #a1a277;
+}
+
+
 /* userinfo */
 #userinfo {
 	margin: 0px 20px 0px auto;
@@ -100,6 +129,7 @@ h3#title a {
 
 #logout:hover {
 	text-decoration: underline;
+	color: #f08080;
 }
 
 div#content {

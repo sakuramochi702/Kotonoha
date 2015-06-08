@@ -4,6 +4,14 @@ Parse.initialize("HkycYcXTouVqnrPIz4KYcUGEG4iSwhaiNuqDohzR", "ST9G77Nfh2ZCgjsByo
 window.onload = function() {
 	//ログイン情報
 	getLoginInfo();
+
+	//デフォルト名称
+	var eleName = document.getElementById("username");
+	if (Parse.User.current()) {
+		eleName.value = Parse.User.current().getUsername();
+	} else {
+		eleName.value = "unknown";
+	}
 }
 
 function onClickAdd() {

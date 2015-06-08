@@ -6,7 +6,7 @@ window.onload = function() {
 	getLoginInfo();
 
 	//ランダム1件表示の読み込み
-	loadOneData();
+	loadRandomData();
 }
 
 function loadOneData() {
@@ -28,6 +28,42 @@ function loadOneData() {
 			objParent.appendChild(element);
 
 			
+		},
+		error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		}
+	});
+}
+
+function loadRandomData() {
+	var KotonohaCnt = Parse.Object.extend("Kotonoha");
+	var queryCnt = new Parse.Query(KotonohaCnt);
+	queryCnt.count({
+		success: function(number) {
+			var Kotonoha = Parse.Object.extend("Kotonoha");
+			var query = new Parse.Query(Kotonoha);
+			query.skip(Math.floor(Math.random() * number));
+			query.limit(1);
+			query.find({
+				success: function(results) {
+					var object = results[0];
+
+					//div生成
+					var element = document.createElement('div');
+					element.id = "remark";
+					element.innerHTML = '<p id="sentence">'
+						+ object.get('sentence') + '</p>'
+						+ '<p id="tag">' + object.get('tags') + '</p>'
+						+ '<p id="datetime">Added by '
+						+ object.get('username') + '</p>';
+
+					var objParent = document.getElementById('wordlist');
+					objParent.appendChild(element);	
+				},
+				error: function(error) {
+					alert("Error: " + error.code + " " + error.message);
+				}
+			});
 		},
 		error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
