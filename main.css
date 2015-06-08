@@ -186,7 +186,7 @@ div#remark {
 	margin-left: 0px;
 	margin-top: 24px;
 	margin-bottom: 24px;
-	padding: 20px 15px 20px 15px;
+	padding: 20px 15px 12px 15px;
 	list-style-type: none;
 	border-style: none;
 	border-radius: 5px;
@@ -201,8 +201,43 @@ p#tag, #datetime {
 	text-align: right;
 	font-size: 10px;
 	margin-right: 15px;
-
 }
+
+/* remark内ソーシャルボタン */
+#btn-social {
+}
+
+.fa-stack {
+	font-size: 90%;
+	margin-left: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.text-btn-star, .text-btn-twitter, .text-btn-facebook {
+	color: #fefefe;
+}
+
+.text-btn-star:hover {
+	color: #ff6347;
+}
+
+.text-btn-twitter:hover {
+	color: #55acee;
+}
+
+.text-btn-facebook:hover {
+	color: #3b5998;
+}
+
+.bg-btn-social {
+	color: #dcdcdc;
+}
+
+.bg-btn-social:hover {
+	color: #cdcdcd;
+}
+
 
 div#inputform {
 	margin-top: 20px;

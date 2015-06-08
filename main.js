@@ -9,32 +9,6 @@ window.onload = function() {
 	loadRandomData();
 }
 
-function loadOneData() {
-	var Kotonoha = Parse.Object.extend("Kotonoha");
-	var query = new Parse.Query(Kotonoha);
-	query.find ({
-		success: function(results) {
-			var idx = Math.floor(Math.random()*results.length);
-			var object = results[idx];
-
-			//div生成
-			var element = document.createElement('div');
-			element.id = "remark";
-			element.innerHTML = '<p id="sentence">' + object.get('sentence') + '</p>'
-				+ '<p id="tag">' + object.get('tags') + '</p>'
-				+ '<p id="datetime">Added by ' + object.get('username') + '</p>';
-
-			var objParent = document.getElementById('wordlist');
-			objParent.appendChild(element);
-
-			
-		},
-		error: function(error) {
-			alert("Error: " + error.code + " " + error.message);
-		}
-	});
-}
-
 function loadRandomData() {
 	var KotonohaCnt = Parse.Object.extend("Kotonoha");
 	var queryCnt = new Parse.Query(KotonohaCnt);
@@ -55,7 +29,30 @@ function loadRandomData() {
 						+ object.get('sentence') + '</p>'
 						+ '<p id="tag">' + object.get('tags') + '</p>'
 						+ '<p id="datetime">Added by '
-						+ object.get('username') + '</p>';
+						+ object.get('username') + '</p>'
+						+ '<p id="btn-social">'
+						//add_collection
+						+ '<span class="fa-stack fa-lg">'
+						+ '<i class="fa fa-circle fa-stack-2x '
+						+ 'bg-btn-social"></i>'
+						+ '<i class="fa fa-star fa-stack-1x '
+						+ 'pull-left text-btn-star"></i>'
+						+ '</span>'
+						//twitter
+						+ '<span class="fa-stack fa-lg">'
+						+ '<i class="fa fa-circle fa-stack-2x '
+						+ 'bg-btn-social"></i>'
+						+ '<i class="fa fa-twitter fa-stack-1x '
+						+ 'pull-left text-btn-twitter"></i>'
+						+ '</span>'
+						//facebook
+						+ '<span class="fa-stack fa-lg">'
+						+ '<i class="fa fa-circle fa-stack-2x '
+						+ 'bg-btn-social"></i>'
+						+ '<i class="fa fa-facebook fa-stack-1x '
+						+ 'pull-left text-btn-facebook"></i>'
+						+ '</span>'
+						+ '</p>';
 
 					var objParent = document.getElementById('wordlist');
 					objParent.appendChild(element);	
