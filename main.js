@@ -28,8 +28,8 @@ function loadRandomData() {
 					element.innerHTML = '<p id="sentence">'
 						+ object.get('sentence') + '</p>'
 						+ '<p id="tag">' + object.get('tags') + '</p>'
-						+ '<p id="datetime">Added by '
-						+ object.get('username') + '</p>'
+						+ '<p id="category">カテゴリ: '
+						+ object.get('category') + '</p>'
 						+ '<p id="btn-social">'
 						//add_collection
 						+ '<span class="fa-stack fa-lg">'

@@ -13,17 +13,18 @@
 <body>
 	<div id="left">
 		<div id="header">
-			<h3 id="title"><a href="index.html">コトノハコレクション(α)</a></h3>
+			<!-- <h3 id="title"><a href="index.html">コトノハコレクション(α)</a></h3> -->
+			<a href="index.html"><img id="logo" src="img/title_logo.png"></a>
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="index.html">トップ</a></li>
-				<li><a href="search.html">ケンサク</a></li>
-				<li><a href="add.html">トウコウ</a></li>
-				<li><a href="#">コレクション</a></li>
-				<li><a href="login.html">ログイン</a></li>
-				<li><a href="rgst.html">ユーザートウロク</a></li>
-				<li><a href="#">ナニコレ？</a></li>
+				<li><a href="index.html">TOP</a></li>
+				<li><a href="search.html">SEARCH</a></li>
+				<li><a href="add.html">ADD</a></li>
+				<li><a href="#">COLLECTION</a></li>
+				<li><a href="login.html">LOGIN</a></li>
+				<li><a href="rgst.html">SIGN UP</a></li>
+				<li><a href="#">WHAT'S THIS?</a></li>
 			</ul> 
 		</div>
 		<div id="social">
@@ -44,9 +45,14 @@
 				<!-- <p id="listtitle">ケンサク</p> -->
 				<div id="searchbox">
 					<ul id="searchconds" class="searchconds">
-						<li id="searchcond"><input type="text" id="cond" value=""></li>
+						<li id="searchcond"><input type="text" id="cond" value="" onkeypress="onKeyPressCond(event.keyCode);"></li>
 						<li id="btnSearch" class="fa fa-search fa-lg" onClick="onClickSearch()"></li>
 					</ul>
+					<p id="inputedt">
+						<select name="category" id="category" onChange="onChangeCtgr()">
+						<option value=""></option>
+						</select>
+					</p>
 				</div>
 				<div id="wordlist">
 					<!-- <div id="remark">ここにParseから読み込んで生成</div> -->

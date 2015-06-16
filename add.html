@@ -15,17 +15,18 @@
 <body>
 	<div id="left">
 		<div id="header">
-			<h3 id="title"><a href="index.html">コトノハコレクション(α)</a></h3>
+			<!-- <h3 id="title"><a href="index.html">コトノハコレクション(α)</a></h3> -->
+			<a href="index.html"><img id="logo" src="img/title_logo.png"></a>
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="index.html">トップ</a></li>
-				<li><a href="search.html">ケンサク</a></li>
-				<li><a href="add.html">トウコウ</a></li>
-				<li><a href="#">コレクション</a></li>
-				<li><a href="login.html">ログイン</a></li>
-				<li><a href="rgst.html">ユーザートウロク</a></li>
-				<li><a href="#">ナニコレ？</a></li>
+				<li><a href="index.html">TOP</a></li>
+				<li><a href="search.html">SEARCH</a></li>
+				<li><a href="add.html">ADD</a></li>
+				<li><a href="#">COLLECTION</a></li>
+				<li><a href="login.html">LOGIN</a></li>
+				<li><a href="rgst.html">SIGN UP</a></li>
+				<li><a href="#">WHAT'S THIS?</a></li>
 			</ul> 
 		</div>
 		<div id="social">
@@ -42,16 +43,23 @@
 		</div>
 		<div id="content">
 			<div id="main">
-				<p id="addtitle">トウコウ</p>
+				<p id="addtitle">コトノハ投稿</p>
 				<div id="addform">
 					<div id="inputform">
-						<p id="inputlabel">ホンブン</p>
+						<p id="inputlabel">本文</p>
 						<p id="inputedt"><input type="text" id="remark" value=""><p>
-						<p id="inputlabel">タグ</p>
+						<p id="inputlabel">名前</p>
 						<p id="inputedt"><input type="text" id="tags" value=""><p>
+						<p id="inputlabel">カテゴリ</p>
+						<p id="inputedt">
+							<select name="category" id="category" onChange="onChangeCategory()">
+							<option value=""></option>
+							</select>
+							<input type="text" id="new_ctgr" value="">
+						</p>
 						<p id="inputlabel">ユーザーID</p>
-						<p id="inputedt"><input type="text" id="username" value=""><p>
-						<p class="btnAdd" onClick="onClickAdd()">トウコウ</p>
+						<p id="inputedt"><input type="text" id="username" value="" disabled><p>
+						<p class="btnAdd" onClick="onClickAdd()">投稿する</p>
 					</div>
 				</div>
 			</div>

@@ -8,35 +8,80 @@ window.onload = function() {
 	//ログイン情報
 	getLoginInfo();
 
+	//カテゴリ情報
+	loadCtgrInfo();
+
 	//データ読み込み
-	loadData();
+	//loadData();
+}
+
+function loadCtgrInfo() {
+	var Category = Parse.Object.extend("Category");
+	var query = new Parse.Query(Category);
+	query.ascending("ordKey");
+	query.limit(1000);
+	query.find({
+		success: function(results) {
+			//プルダウンにセット
+			var ele = document.getElementById("category");
+			ele.length = 1;
+			ele.options[0].text = "";
+			ele.options[0].value = "NO_COND";
+			for (var i=0; i<results.length; i++) {
+				ele.length++;
+				ele.options[i+1].text = results[i].get("categoryName");
+				ele.options[i+1].value = results[i].get("categoryName");
+			}
+		},
+		error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		}
+	});
+}
+
+function onKeyPressCond(code) {
+	if (13 == code) {
+		if (document.getElementById("cond").value != "") {
+			loadData();
+		}
+	}
 }
 
 function onClickSearch() {
-	//配列の初期化
-	arrayObjectIds = [];
+	//読込直し
+	loadData();
+}
 
-	//remarkの削除
-	var domobj = document.getElementById("wordlist");
-	var firstchild = domobj.firstChild;
-	while (firstchild.nextSibling) {
-		domobj.removeChild(firstchild.nextSibling);
-	}
-	domobj.removeChild(firstchild);
-
+function onChangeCtgr() {
 	//読込直し
 	loadData();
 }
 
 function loadData() {
-	var eleCond = document.getElementById("cond");
+	if (arrayObjectIds.length > 0) {
+		//配列の初期化
+		arrayObjectIds = [];
 
+		//remarkの削除
+		var domobj = document.getElementById("wordlist");
+		var firstchild = domobj.firstChild;
+		while (firstchild.nextSibling) {
+			domobj.removeChild(firstchild.nextSibling);
+		}
+		domobj.removeChild(firstchild);
+	}
+
+	var eleCond = document.getElementById("cond");
+	var eleCtgr = document.getElementById("category");
 	var Kotonoha = Parse.Object.extend("Kotonoha");
 	var query = new Parse.Query(Kotonoha);
 	
 	//条件指定なし or tags検索用
 	if (eleCond.value.length > 0) {
 		query.contains("tags", eleCond.value);
+	}
+	if (eleCtgr.options[eleCtgr.selectedIndex].value != "NO_COND") {
+		query.equalTo("category", eleCtgr.options[eleCtgr.selectedIndex].value);
 	}
 	query.limit(100);
 	query.find({
@@ -56,16 +101,46 @@ function loadData() {
 			alert("Error: " + error.code + " " + error.message);
 		}
 	});
-
-	if (eleCond.value.length > 0) {
-			}
 }
 
 function loadDataForSentenceCond() {
 	var eleCond = document.getElementById("cond");
+	var eleCtgr = document.getElementById("category");
 	var Kotonoha = Parse.Object.extend("Kotonoha");
 	var query = new Parse.Query(Kotonoha);
 	query.contains("sentence", eleCond.value);
+	if (eleCtgr.options[eleCtgr.selectedIndex].value != "NO_COND") {
+		query.equalTo("category", eleCtgr.options[eleCtgr.selectedIndex].value);
+	}
+	query.find({
+		success: function(results) {
+			for (var i=0; i<results.length; i++) {
+				var object = results[i];
+
+				if (!alreadyContained(object.id)) {
+					//div生成
+					arrayObjectIds.push(object.id);
+					createRemarkDiv(object);
+				}
+			}
+			/*if (eleCond.value.length > 0) {
+				loadDataForCategoryCond();
+			}*/
+		},
+		error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		}
+	});
+}
+
+/*
+ * カテゴリは文字列部分一致じゃなくてプルダウンから選択にしたのでこのメソッドは不要
+ *
+ * function loadDataForCategoryCond() {
+	var eleCond = document.getElementById("cond");
+	var Kotonoha = Parse.Object.extend("Kotonoha");
+	var query = new Parse.Query(Kotonoha);
+	query.contains("category", eleCond.value);
 	query.find({
 		success: function(results) {
 			for (var i=0; i<results.length; i++) {
@@ -83,6 +158,7 @@ function loadDataForSentenceCond() {
 		}
 	});
 }
+*/
 
 function alreadyContained(val) {
 	for(var i = 0; i < arrayObjectIds.length; i++){
@@ -100,8 +176,8 @@ function createRemarkDiv(object) {
 	element.innerHTML = '<p id="sentence">'
 		+ object.get('sentence') + '</p>'
 		+ '<p id="tag">' + object.get('tags') + '</p>'
-		+ '<p id="datetime">Added by '
-		+ object.get('username') + '</p>'
+		+ '<p id="category">カテゴリ: '
+		+ object.get('category') + '</p>'
 		+ '<p id="btn-social">'
 		//add_collection
 		+ '<span class="fa-stack fa-lg">'
