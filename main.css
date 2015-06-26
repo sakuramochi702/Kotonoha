@@ -206,6 +206,10 @@ p#tag, #category, #datetime {
 	margin-right: 15px;
 }
 
+p#hidden {
+	display: none;
+}
+
 /* remark内ソーシャルボタン */
 #btn-social {
 }
@@ -217,7 +221,7 @@ p#tag, #category, #datetime {
 	cursor: pointer;
 }
 
-.text-btn-star, .text-btn-twitter, .text-btn-facebook {
+.text-btn-star, .text-btn-twitter, .text-btn-facebook, .text-btn-trash {
 	color: #fefefe;
 }
 
@@ -231,6 +235,10 @@ p#tag, #category, #datetime {
 
 .text-btn-facebook:hover {
 	color: #3b5998;
+}
+
+.text-btn-trash:hover {
+	color: #444444;
 }
 
 .bg-btn-social {

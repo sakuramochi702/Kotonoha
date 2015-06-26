@@ -8,11 +8,20 @@ window.onload = function() {
 	//ログイン情報
 	getLoginInfo();
 
+	if (!Parse.User.current()) {
+		swal({
+			title: "エラーメッセージ",
+			text: "コレクションを利用するにはログインしてください。",
+			confirmButtonColor: "#cd5c5c"
+		});
+		return;
+	}
+
 	//カテゴリ情報
-	loadCtgrInfo();
+	//loadCtgrInfo();
 
 	//データ読み込み
-	//loadData();
+	loadData();
 }
 
 function loadCtgrInfo() {
@@ -58,7 +67,16 @@ function onChangeCtgr() {
 }
 
 function loadData() {
-	if (arrayObjectIds.length > 0) {
+	if (!Parse.User.current()) {
+		swal({
+			title: "エラーメッセージ",
+			text: "コレクションを利用するにはログインしてください。",
+			confirmButtonColor: "#cd5c5c"
+		});
+		return;
+	}
+
+	/*if (arrayObjectIds.length > 0) {
 		//配列の初期化
 		arrayObjectIds = [];
 
@@ -69,20 +87,24 @@ function loadData() {
 			domobj.removeChild(firstchild.nextSibling);
 		}
 		domobj.removeChild(firstchild);
-	}
+	}*/
 
-	var eleCond = document.getElementById("cond");
-	var eleCtgr = document.getElementById("category");
+	//var eleCond = document.getElementById("cond");
+	//var eleCtgr = document.getElementById("category");
 	var Kotonoha = Parse.Object.extend("Kotonoha");
+	var Collection = Parse.Object.extend("Collection");
 	var query = new Parse.Query(Kotonoha);
+	var innerQuery = new Parse.Query(Collection);
 	
 	//条件指定なし or tags検索用
-	if (eleCond.value.length > 0) {
+	/*if (eleCond.value.length > 0) {
 		query.contains("tags", eleCond.value);
 	}
 	if (eleCtgr.options[eleCtgr.selectedIndex].value != "NO_COND") {
 		query.equalTo("category", eleCtgr.options[eleCtgr.selectedIndex].value);
-	}
+	}*/
+	innerQuery.equalTo("username", Parse.User.current().getUsername());
+	query.matchesKeyInQuery("objectId", "kotonohaId", innerQuery);
 	query.limit(100);
 	query.find({
 		success: function(results) {
@@ -93,9 +115,9 @@ function loadData() {
 				//div生成
 				createRemarkDiv(object);
 			}
-			if (eleCond.value.length > 0) {
+			/*if (eleCond.value.length > 0) {
 				loadDataForSentenceCond();
-			}
+			}*/
 		},
 		error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
@@ -154,12 +176,12 @@ function createRemarkDiv(object) {
 		+ '<p id="category">カテゴリ: '
 		+ object.get('category') + '</p>'
 		+ '<p id="btn-social">'
-		//add_collection
+		//remove_collection
 		+ '<span class="fa-stack fa-lg">'
 		+ '<i class="fa fa-circle fa-stack-2x '
 		+ 'bg-btn-social"></i>'
-		+ '<i class="fa fa-star fa-stack-1x '
-		+ 'pull-left text-btn-star" onClick="onClickStar(' + arrayObjectIds.length + ')"></i>'
+		+ '<i class="fa fa-trash fa-stack-1x '
+		+ 'pull-left text-btn-trash" onClick="onClickTrash(' + arrayObjectIds.length + ')"></i>'
 		+ '</span>'
 		//twitter
 		+ '<span class="fa-stack fa-lg">'
@@ -181,16 +203,7 @@ function createRemarkDiv(object) {
 	objParent.appendChild(element);
 }
 
-function onClickStar(idx) {
-	if (!Parse.User.current()) {
-		swal({
-			title: "エラーメッセージ",
-			text: "コレクションを利用するにはログインしてください。",
-			confirmButtonColor: "#cd5c5c"
-		});
-		return;
-	}
-	
+function onClickTrash(idx) {	
 	var Collection = Parse.Object.extend("Collection");
 	var objId = arrayObjectIds[idx];
 

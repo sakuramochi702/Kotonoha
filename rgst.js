@@ -12,6 +12,24 @@ function onClickRgst() {
 	var strPassword = document.getElementById("password").value;
 	var strEmail = document.getElementById("email").value;
 
+	if (strUsername.length == 0) {
+		swal({
+			title: "エラー",
+			text: "ユーザーIDを入力してください",
+			confirmButtonColor: "#cd5c5c"
+		});
+		return;
+	}
+	if (strPassword.length == 0) {
+		swal({
+			title: "エラー",
+			text: "パスワードを入力してください",
+			confirmButtonColor: "#cd5c5c"
+		});
+		return;
+	}
+
+
 	var user = new Parse.User();
 	user.set("username", strUsername);
 	user.set("password", strPassword);

@@ -54,10 +54,44 @@ function onClickAdd() {
 	var strNewCtgr = document.getElementById("new_ctgr");
 	var strUserName = document.getElementById("username");
 
+	if (strRemark.value.length == 0) {
+		swal({
+			title: "エラー",
+			text: "本文を入力してください",
+			confirmButtonColor: "#cd5c5c"
+		});
+		return;
+	}
+	if (strTags.value.length == 0) {
+		swal({
+			title: "エラー",
+			text: "名前を入力してください",
+			confirmButtonColor: "#cd5c5c"
+		});
+		return;
+	}
+	if (cmbCategory.options[cmbCategory.selectedIndex].value.length == 0) {
+		swal({
+			title: "エラー",
+			text: "カテゴリを選択してください",
+			confirmButtonColor: "#cd5c5c"
+		});
+		return;
+	}
+
 	//カテゴリの新規登録
 	var rgstCtgr;
 	if (cmbCategory.options[cmbCategory.selectedIndex].value == "new_category") {
 		rgstCtgr = strNewCtgr.value;
+		if (rgstCtgr.length == 0) {
+			swal({
+				title: "エラー",
+				text: "新規カテゴリ名称を入力してください",
+				confirmButtonColor: "#cd5c5c"
+			});
+		return;
+	}
+
 		saveNewCategory(rgstCtgr);
 	} else {
 		rgstCtgr = cmbCategory.options[cmbCategory.selectedIndex].value;
